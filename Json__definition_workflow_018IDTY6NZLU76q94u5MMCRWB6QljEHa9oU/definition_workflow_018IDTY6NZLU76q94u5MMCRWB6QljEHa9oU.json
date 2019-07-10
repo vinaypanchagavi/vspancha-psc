@@ -1,0 +1,93 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018IDTY6NZLU76q94u5MMCRWB6QljEHa9oU",
+    "name": "Json PlaceHolder",
+    "title": "Json PlaceHolder",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.integer",
+        "properties": {
+          "scope": "input",
+          "name": "UserID",
+          "type": "datatype.integer",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_018IDW81OXY5M1wZjKTwWcEp3vn1fSkWnqx",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Json PlaceHolder",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018IDUCCALKYP6unv4BjIvgLYokf3Gnko8H",
+        "name": "HTTP Request",
+        "title": "HTTP Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "accept": "application/json",
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "content_type": "application/json",
+          "continue_on_error_status_code": false,
+          "continue_on_failure": false,
+          "display_name": "HTTP Request",
+          "method": "GET",
+          "relative_url": "$workflow.definition_workflow_018IDTY6NZLU76q94u5MMCRWB6QljEHa9oU.input.variable_workflow_018IDW81OXY5M1wZjKTwWcEp3vn1fSkWnqx$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_018IDWY2EM1QT3x0npPh3xxnPfbgTYZoVRG"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_018IDWY2EM1QT3x0npPh3xxnPfbgTYZoVRG": {
+      "unique_name": "definition_target_018IDWY2EM1QT3x0npPh3xxnPfbgTYZoVRG",
+      "name": "Json PlaceHolder",
+      "title": "Json PlaceHolder",
+      "type": "web-service.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "disable_certificate_validation": true,
+        "display_name": "Json PlaceHolder",
+        "host": "jsonplaceholder.typicode.com",
+        "no_runtime_user": true,
+        "path": "posts",
+        "port": 443,
+        "protocol": "https"
+      }
+    }
+  }
+}
