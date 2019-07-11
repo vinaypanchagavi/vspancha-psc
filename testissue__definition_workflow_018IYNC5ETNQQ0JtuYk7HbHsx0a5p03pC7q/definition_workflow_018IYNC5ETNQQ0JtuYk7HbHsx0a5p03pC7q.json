@@ -1,0 +1,84 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018IYNC5ETNQQ0JtuYk7HbHsx0a5p03pC7q",
+    "name": "NEXTG-13100",
+    "title": "NEXTG-13100",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NEXTG-13100",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018IYNN86PC6M4phfAnYPxmXOCIAFxQd4uv",
+        "name": "Convert Json to Xml",
+        "title": "Convert Json to Xml",
+        "type": "core.json2xml",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Convert Json to Xml",
+          "input_json": "{\n  \"id\": \"018B2M62088O33rScH0AOaM6n0z5Paki0RI\",\n  \"schema_id\": \"015DUM81KJ5BQ5Ian3tZYBnkLhZkBk5Zdxs\",\n  \"adapter_id\": \"015DULGELVCTU0lfGC7HaF9Kw9ywbIuO2zI\",\n  \"name\": \"Convert Json to Xml\",\n  \"title\": \"Convert Json to Xml\",\n  \"type\": \"core.json2xml\",\n  \"base_type\": \"activity\",\n  \"properties\": {\n    \"continue_on_failure\": false,\n    \"display_name\": \"Convert Json to Xml\"\n  },\n  \"invalid_properties\": {\n    \"input_json\": \"required missing\"\n  },\n  \"valid\": false,\n  \"subworkflow_valid\": false,\n  \"created_on\": \"2019-07-01T15:38:30Z\",\n  \"updated_on\": \"2019-07-01T15:38:30Z\",\n  \"created_by\": \"5\",\n  \"updated_by\": \"5\",\n  \"status\": {\n    \"state\": \"updated\"\n  },\n  \"unique_name\": \"definition_activity_018B2M657XFO66NCx192te0KG584R4Discf\"\n}"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerschedule_018IYOOLFRPRB17Kj4XnuLBC2ZuOWYIYbVQ": {
+      "workflow_id": "definition_workflow_018IYNC5ETNQQ0JtuYk7HbHsx0a5p03pC7q",
+      "name": "MyTrigger",
+      "title": "",
+      "lowercase_name": "schedule.mytrigger",
+      "type": "schedule",
+      "base_type": "trigger",
+      "ref_id": "schedule_018IYI5MQ396X1fdvW0w3uwcHE8DEMUcV0z",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerschedule_018IYOOLFRPRB17Kj4XnuLBC2ZuOWYIYbVQ",
+      "object_type": "triggerschedule"
+    }
+  },
+  "schedules": {
+    "schedule_018IYI5MQ396X1fdvW0w3uwcHE8DEMUcV0z": {
+      "unique_name": "schedule_018IYI5MQ396X1fdvW0w3uwcHE8DEMUcV0z",
+      "name": "EM Trigger",
+      "description": "EM Trigger",
+      "type": "basic.schedule",
+      "base_type": "schedule",
+      "properties": {
+        "calendar": "calendar_recurring_1BMfMcNhIKsalUwsjCDmSfUnmXW",
+        "timezone": "Europe/Brussels",
+        "starttime": "04:20",
+        "interval_hours": 8,
+        "interval_minutes": 0,
+        "number_of_times": 2,
+        "display_name": "EM Trigger",
+        "description": "EM Trigger"
+      },
+      "version": "1.0.0",
+      "object_type": "schedule"
+    }
+  }
+}
