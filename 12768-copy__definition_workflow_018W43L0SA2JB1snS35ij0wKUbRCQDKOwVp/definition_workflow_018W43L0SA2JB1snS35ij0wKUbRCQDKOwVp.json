@@ -1,0 +1,118 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018W43L0SA2JB1snS35ij0wKUbRCQDKOwVp",
+    "name": "NEXTG-12768",
+    "title": "NEXTG-12768",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NEXTG-12768",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018W43LFYV81S3rIhcACJt9qTzR2wEzdIQz",
+        "name": "Query Object",
+        "title": "Query Object",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$eventtype.kafka event.input.target_id$",
+            "operator": "eq",
+            "right_operand": "$global.variable_01865CQX394OM2QeewgDi5JGHFWVaDf4Q0g.global.variable_01865CQX394OM2QeewgDi5JGHFWVaDf4Q0g[0].q$"
+          },
+          "display_name": "Query Object",
+          "query_object": {
+            "query_event": true,
+            "event_type": "kafka.event"
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_018W43LOF7MC76H9keZDvn3I7SffeMg8rei",
+        "name": "Query Object",
+        "title": "Query Object",
+        "type": "task.query_object",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "criteria": {
+            "left_operand": "$eventtype.kafka event.input.target_id$",
+            "operator": "eq"
+          },
+          "display_name": "Query Object",
+          "query_object": {
+            "query_event": true,
+            "event_type": "kafka.event"
+          },
+          "skip_execution": false
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_01865CQX394OM2QeewgDi5JGHFWVaDf4Q0g": {
+      "unique_name": "variable_01865CQX394OM2QeewgDi5JGHFWVaDf4Q0g",
+      "schema_id": "tabletype_017P7NV2ONX3C6kCAW4drRmIht0EUs9cJIi",
+      "properties": {
+        "value": [
+          {
+            "column_data": {
+              "q": "wethepeople"
+            }
+          }
+        ],
+        "scope": "global",
+        "name": "EMType4Q Variable",
+        "type": "datatype.table",
+        "description": "EMType4Q Variable",
+        "is_required": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "table_types": {
+    "tabletype_017P7NV2ONX3C6kCAW4drRmIht0EUs9cJIi": {
+      "unique_name": "tabletype_017P7NV2ONX3C6kCAW4drRmIht0EUs9cJIi",
+      "data_type": "datatype.tabletype",
+      "display_name": "EMType4Q",
+      "description": "EMType4Q",
+      "columns": [
+        {
+          "maxLength": 12,
+          "name": "q",
+          "title": "w",
+          "type": "string"
+        }
+      ],
+      "base_type": "datatype",
+      "object_type": "tabletype"
+    }
+  }
+}
