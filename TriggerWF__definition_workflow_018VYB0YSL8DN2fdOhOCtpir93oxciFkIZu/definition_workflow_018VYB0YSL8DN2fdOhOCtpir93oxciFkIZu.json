@@ -1,0 +1,113 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_018VYB0YSL8DN2fdOhOCtpir93oxciFkIZu",
+    "name": "Trigger WF from Kafaka Message Vinay",
+    "title": "Trigger WF from Kafaka Message Vinay",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "Trigger WF from Kafaka Message Vinay",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_018VYBB98ZPDB4T65WykUyiR7ARr8Iq1uqf",
+        "name": "Sleep",
+        "title": "Sleep",
+        "type": "core.sleep",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Sleep",
+          "skip_execution": false,
+          "sleep_interval": 10
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "triggers": {
+    "triggerevent_018VYBOPOZ1NI1hU9TdsF5ZTHfsqbaebVh0": {
+      "workflow_id": "definition_workflow_018VYB0YSL8DN2fdOhOCtpir93oxciFkIZu",
+      "name": "KafkaVinTrigger",
+      "title": "",
+      "lowercase_name": "event.kafkavintrigger",
+      "type": "event",
+      "base_type": "trigger",
+      "ref_id": "event_018VY4N6ITAI50wQhVu4hgBxJJp4ssnP6ig",
+      "version": "1.0.0",
+      "disabled": false,
+      "unique_name": "triggerevent_018VYBOPOZ1NI1hU9TdsF5ZTHfsqbaebVh0",
+      "object_type": "triggerevent"
+    }
+  },
+  "events": {
+    "event_018VY4N6ITAI50wQhVu4hgBxJJp4ssnP6ig": {
+      "name": "VinKafkaEvent",
+      "title": "VinKafkaEvent",
+      "type": "kafka.event",
+      "base_type": "event",
+      "object_type": "event",
+      "target_id": "definition_target_015WCCMLPUUZ60CKFCoJcJRhPHj4cL1Heoq",
+      "version": "1.0.0",
+      "properties": {
+        "conditions": {
+          "left_operand": {
+            "left_operand": "$output.message$",
+            "operator": "eq",
+            "right_operand": "vin"
+          },
+          "operator": "or",
+          "right_operand": {
+            "left_operand": "$output.message$",
+            "operator": "eq",
+            "right_operand": "test"
+          }
+        },
+        "display_name": "VinKafkaEvent",
+        "target_id": "definition_target_015WCCMLPUUZ60CKFCoJcJRhPHj4cL1Heoq",
+        "title": "VinKafkaEvent",
+        "topic_name": "vinay"
+      },
+      "unique_name": "event_018VY4N6ITAI50wQhVu4hgBxJJp4ssnP6ig"
+    }
+  },
+  "targets": {
+    "definition_target_015WCCMLPUUZ60CKFCoJcJRhPHj4cL1Heoq": {
+      "unique_name": "definition_target_015WCCMLPUUZ60CKFCoJcJRhPHj4cL1Heoq",
+      "name": "internalKafka-noauth",
+      "title": "internalKafka-noauth",
+      "type": "kafka.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "description": "test new one",
+        "disable_certificate_validation": true,
+        "display_name": "internalKafka-noauth",
+        "host": "10.88.38.124",
+        "no_runtime_user": true,
+        "port": 9092,
+        "ssl_enable": false
+      }
+    }
+  }
+}
