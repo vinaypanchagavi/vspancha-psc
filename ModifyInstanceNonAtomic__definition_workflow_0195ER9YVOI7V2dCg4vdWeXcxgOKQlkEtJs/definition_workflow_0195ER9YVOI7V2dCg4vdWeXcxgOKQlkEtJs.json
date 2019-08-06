@@ -1,0 +1,215 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0195ER9YVOI7V2dCg4vdWeXcxgOKQlkEtJs",
+    "name": "Modify Instance NonAtomic",
+    "title": "Modify Instance NonAtomic",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": [
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Request Body",
+          "type": "datatype.string",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_0195ERHNZWYZC473u3j6t7EoyReXtJGpXpj",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.secure_string",
+        "properties": {
+          "value": "*****",
+          "scope": "input",
+          "name": "Access Token",
+          "type": "datatype.secure_string",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_0195ERHNZWGTB7lBzIY8mu4AFzebedorEeX",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "output",
+          "name": "Response Body",
+          "type": "datatype.string",
+          "is_required": false
+        },
+        "unique_name": "variable_workflow_0195ERHNZWQ321Svyb0g65GDPH8Les5mN2Q",
+        "object_type": "variable_workflow"
+      },
+      {
+        "schema_id": "datatype.string",
+        "properties": {
+          "value": "",
+          "scope": "input",
+          "name": "Server Id",
+          "type": "datatype.string",
+          "is_required": true
+        },
+        "unique_name": "variable_workflow_0195ERHNZWUS82lRxTmzQOUWprZ92yJCjsQ",
+        "object_type": "variable_workflow"
+      }
+    ],
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "description": "This atomic  workflow modifies an instance.",
+      "display_name": "Modify Instance NonAtomic",
+      "favorite": false,
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "target_type": "web-service.endpoint",
+        "specify_on_workflow_start": true
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0195ERKFP0JI43Jbt817LsnVyTDT313KTOK",
+        "name": "HTTP Request",
+        "title": "Modify Instance Request",
+        "type": "web-service.http_request",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "allow_auto_redirect": true,
+          "body": "$workflow.definition_workflow_0195ER9YVOI7V2dCg4vdWeXcxgOKQlkEtJs.input.variable_workflow_0195ERHNZWYZC473u3j6t7EoyReXtJGpXpj$",
+          "content_type": "application/json",
+          "continue_on_error_status_code": true,
+          "continue_on_failure": false,
+          "custom_headers": [
+            {
+              "name": "$global.variable_015DGW989NYOT2csNuSMQcJEuqcT2JdqU7C.global.variable_015DGW989NYOT2csNuSMQcJEuqcT2JdqU7C$",
+              "value": "$workflow.definition_workflow_0195ER9YVOI7V2dCg4vdWeXcxgOKQlkEtJs.input.variable_workflow_0195ERHNZWGTB7lBzIY8mu4AFzebedorEeX$"
+            }
+          ],
+          "display_name": "Modify Instance Request",
+          "method": "PUT",
+          "relative_url": "/v2.1/servers/$workflow.definition_workflow_0195ER9YVOI7V2dCg4vdWeXcxgOKQlkEtJs.input.variable_workflow_0195ERHNZWUS82lRxTmzQOUWprZ92yJCjsQ$",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "target": {
+            "override_workflow_target": false,
+            "override_workflow_target_group_criteria": false,
+            "use_workflow_target": true,
+            "use_workflow_target_group": false
+          }
+        },
+        "object_type": "definition_activity"
+      },
+      {
+        "unique_name": "definition_activity_0195ERMFEDXXP4gFWGB9Shgs8BNSVKICdCC",
+        "name": "Condition Block",
+        "title": "Check Status Code",
+        "type": "logic.if_else",
+        "base_type": "activity",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Check Status Code"
+        },
+        "object_type": "definition_activity",
+        "blocks": [
+          {
+            "unique_name": "definition_activity_0195ERNFGQG9M37RrXyLBll9KNjIE1IwTqs",
+            "name": "Condition Branch",
+            "title": "If Status Code = 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_0195ERKFP0JI43Jbt817LsnVyTDT313KTOK.output.status_code$",
+                "operator": "eq",
+                "right_operand": 200
+              },
+              "continue_on_failure": false,
+              "display_name": "If Status Code = 200"
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0195EROWKLPCT1EEM1BYchQJ3cyHk7AN5Tc",
+                "name": "Set Variables",
+                "title": "Set Response",
+                "type": "core.set_multiple_variables",
+                "base_type": "activity",
+                "properties": {
+                  "continue_on_failure": false,
+                  "display_name": "Set Response",
+                  "variables_to_update": [
+                    {
+                      "variable_to_update": "$workflow.definition_workflow_0195ER9YVOI7V2dCg4vdWeXcxgOKQlkEtJs.output.variable_workflow_0195ERHNZWQ321Svyb0g65GDPH8Les5mN2Q$",
+                      "variable_value_new": "$activity.definition_activity_0195ERKFP0JI43Jbt817LsnVyTDT313KTOK.output.response_body$"
+                    }
+                  ]
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          },
+          {
+            "unique_name": "definition_activity_0195ERQS5XLEI5rGHeb74IaYirtkwGttdtH",
+            "name": "Condition Branch",
+            "title": "If Status Code \u003c\u003e 200",
+            "type": "logic.condition_block",
+            "base_type": "activity",
+            "properties": {
+              "condition": {
+                "left_operand": "$activity.definition_activity_0195ERKFP0JI43Jbt817LsnVyTDT313KTOK.output.status_code$",
+                "operator": "ne",
+                "right_operand": 200
+              },
+              "continue_on_failure": false,
+              "display_name": "If Status Code \u003c\u003e 200",
+              "skip_execution": false
+            },
+            "object_type": "definition_activity",
+            "actions": [
+              {
+                "unique_name": "definition_activity_0195ERS9L2ICJ0nIzfqXlibt6ksyUAneqGG",
+                "name": "Failed",
+                "title": "Completed",
+                "type": "logic.completed",
+                "base_type": "activity",
+                "properties": {
+                  "completion_type": "failed-completed",
+                  "display_name": "Failed",
+                  "result_message": "Failed To Update Instance for the given instance id: $workflow.definition_workflow_0195ER9YVOI7V2dCg4vdWeXcxgOKQlkEtJs.input.variable_workflow_0195ERHNZWUS82lRxTmzQOUWprZ92yJCjsQ$\n\nError: $activity.definition_activity_0195ERKFP0JI43Jbt817LsnVyTDT313KTOK.output.response_body$"
+                },
+                "object_type": "definition_activity"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_015DGW989NYOT2csNuSMQcJEuqcT2JdqU7C": {
+      "unique_name": "variable_015DGW989NYOT2csNuSMQcJEuqcT2JdqU7C",
+      "properties": {
+        "value": "X-Auth-Token",
+        "scope": "global",
+        "name": "Openstack Auth Header",
+        "type": "datatype.string",
+        "is_required": false
+      },
+      "object_type": "variable"
+    }
+  }
+}
