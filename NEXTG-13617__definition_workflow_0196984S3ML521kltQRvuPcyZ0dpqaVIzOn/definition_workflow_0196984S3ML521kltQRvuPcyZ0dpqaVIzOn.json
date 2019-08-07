@@ -1,0 +1,91 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_0196984S3ML521kltQRvuPcyZ0dpqaVIzOn",
+    "name": "NEXTG-13617",
+    "title": "NEXTG-13617",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "NEXTG-13617",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_0196989MHPGNY2aYXNCvACw1agj6gKzSmep",
+        "name": "Get Access Token OpenStack Latest Jul31",
+        "title": "Get Access Token OpenStack Latest Jul31",
+        "type": "workflow.atomic_workflow",
+        "base_type": "subworkflow",
+        "properties": {
+          "continue_on_failure": false,
+          "display_name": "Get Access Token OpenStack Latest Jul31",
+          "input": {
+            "variable_workflow_0190E3KG64ABM6ScebjK13KVGRda3cCnjkE": "Default",
+            "variable_workflow_0190E3KG64NTH4b8k21j8uv6M04rpGfOzio": "$global.variable_018IHYM4ARE6V5BA6wsr9gjkfcF0s0557b2.global.variable_018IHYM4ARE6V5BA6wsr9gjkfcF0s0557b2$",
+            "variable_workflow_0190E3KG64RUP4XAFovkKx5khnON1blXDu6": "$global.variable_018IHY8P6OY2A0IVFjIOaGrwZut4PhQvhH5.global.variable_018IHY8P6OY2A0IVFjIOaGrwZut4PhQvhH5$",
+            "variable_workflow_0190E3KG64VVW2UMGoP2RFdj5PLphnxF0tr": "Default"
+          },
+          "runtime_user": {
+            "override_target_runtime_user": true,
+            "runtime_user_id": "definition_runtime_user_019699SB8JE173eArYj4tLummDZMntBVVSs",
+            "runtime_user_type": "runtime_user.web-service_basic_credentials"
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "01969A0PE7J3Y7LV9XlAN4j0b9bbZTFtkOL",
+            "target_type": "015DULNZPRPXL75j7VwzfjmQQp6RgAHt294"
+          },
+          "workflow_id": "definition_workflow_0190E3HGV65HB3pSE4nNIo3Hd7hXoeAcBvp"
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "variables": {
+    "variable_018IHY8P6OY2A0IVFjIOaGrwZut4PhQvhH5": {
+      "unique_name": "variable_018IHY8P6OY2A0IVFjIOaGrwZut4PhQvhH5",
+      "properties": {
+        "value": "admin",
+        "scope": "global",
+        "name": "Openstack_UserName",
+        "type": "datatype.string",
+        "is_required": false
+      },
+      "object_type": "variable"
+    },
+    "variable_018IHYM4ARE6V5BA6wsr9gjkfcF0s0557b2": {
+      "unique_name": "variable_018IHYM4ARE6V5BA6wsr9gjkfcF0s0557b2",
+      "properties": {
+        "value": "*****",
+        "scope": "global",
+        "name": "Openstack_Password",
+        "type": "datatype.secure_string",
+        "is_required": false
+      },
+      "object_type": "variable"
+    }
+  },
+  "atomic_workflows": [
+    "definition_workflow_0190E3HGV65HB3pSE4nNIo3Hd7hXoeAcBvp"
+  ]
+}
