@@ -1,0 +1,90 @@
+{
+  "workflow": {
+    "unique_name": "definition_workflow_019BFRPT82ERP4jH8u5fKKATVjDjEJ6qPw4",
+    "name": "PSC Req NEXTG-13617",
+    "title": "PSC Req NEXTG-13617",
+    "type": "generic.workflow",
+    "base_type": "workflow",
+    "variables": null,
+    "properties": {
+      "atomic": {
+        "is_atomic": false
+      },
+      "delete_workflow_instance": false,
+      "display_name": "PSC Req NEXTG-13617",
+      "runtime_user": {
+        "override_target_runtime_user": false,
+        "specify_on_workflow_start": false,
+        "target_default": true
+      },
+      "target": {
+        "execute_on_target_group": false,
+        "execute_on_workflow_target": false,
+        "no_target": true,
+        "specify_on_workflow_start": false
+      }
+    },
+    "object_type": "definition_workflow",
+    "actions": [
+      {
+        "unique_name": "definition_activity_019BFRWBA5V2B7ee3gKhzzAPlLHFB3dpCZC",
+        "name": "Requisition Status",
+        "title": "Requisition Status",
+        "type": "psc.requisition_status",
+        "base_type": "activity",
+        "properties": {
+          "action_timeout": 180,
+          "continue_on_failure": false,
+          "display_name": "Requisition Status",
+          "requisition_id": "2",
+          "runtime_user": {
+            "override_target_runtime_user": false,
+            "target_default": true
+          },
+          "skip_execution": false,
+          "target": {
+            "override_workflow_target": true,
+            "target_id": "definition_target_019BFSLE6YY0B6RuUfzLxcre3R6Ezojvvuo"
+          }
+        },
+        "object_type": "definition_activity"
+      }
+    ],
+    "categories": [
+      "category_1BMfMXSnJMyt5Ihqi7rWJr5N8cf"
+    ]
+  },
+  "targets": {
+    "definition_target_019BFSLE6YY0B6RuUfzLxcre3R6Ezojvvuo": {
+      "unique_name": "definition_target_019BFSLE6YY0B6RuUfzLxcre3R6Ezojvvuo",
+      "name": "PSC251",
+      "title": "PSC251",
+      "type": "psc.endpoint",
+      "base_type": "target",
+      "object_type": "definition_target",
+      "properties": {
+        "default_runtime_user_id": "definition_runtime_user_019BFS8FMWCJZ0XU2a1HsLLBclf2HeTMjLi",
+        "description": "PSC251",
+        "display_name": "PSC251",
+        "host": "10.78.0.251",
+        "port": 8080,
+        "protocol": "http"
+      }
+    }
+  },
+  "runtime_users": {
+    "definition_runtime_user_019BFS8FMWCJZ0XU2a1HsLLBclf2HeTMjLi": {
+      "unique_name": "definition_runtime_user_019BFS8FMWCJZ0XU2a1HsLLBclf2HeTMjLi",
+      "name": "PSC251",
+      "title": "PSC251",
+      "type": "runtime_user.psc_credentials",
+      "base_type": "runtime_user",
+      "object_type": "definition_runtime_user",
+      "properties": {
+        "display_name": "PSC251",
+        "password": "*****",
+        "username": "*****"
+      }
+    }
+  }
+}
